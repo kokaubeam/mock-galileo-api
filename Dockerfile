@@ -1,4 +1,6 @@
 FROM node:10.9-alpine as dependencies
+RUN apk update && apk upgrade && \
+    apk add --no-cache bash git openssh
 WORKDIR /app
 COPY package*.json ./
 RUN npm set progress=false && npm config set depth 0
